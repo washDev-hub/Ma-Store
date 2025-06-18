@@ -24,7 +24,7 @@ body {
   color: white;
   padding: 10px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 999;
 }
@@ -446,33 +446,57 @@ footer {
   height: 28px;
 }
 
+/* Estilo para o botão de toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
 
+/* Estilo para o menu no mobile */
+.menu-navegacao {
+  position: relative;
+}
 
+.menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
 
+.menu li {
+  display: inline-block;
+}
 
-/* Esconde menu padrão no mobile */
+.menu a {
+  text-decoration: none;
+  color: #000;
+}
+
 @media (max-width: 768px) {
-  nav ul.menu {
-    display: none;
+  .menu-toggle {
+    display: block; /* Exibe o botão de toggle no mobile */
+  }
+
+  .menu {
+    display: none; /* Oculta o menu por padrão */
     flex-direction: column;
-    background: #222;
     position: absolute;
-    top: 65px;
-    right: 10px;
-    width: 150px;
-    border-radius: 8px;
-    padding: 1rem 0;
-    box-shadow: 0 5px 15px rgb(0 0 0 / 0.3);
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
   }
-  nav ul.menu li {
-    margin: 0.5rem 0;
-    text-align: center;
-  }
-  nav ul.menu li a {
-    color: white;
-    font-weight: 600;
-  }
-  #menu-toggle {
-    display: block;
+
+  .menu li {
+    margin: 10px 0;
   }
 }
+
+
+
+  

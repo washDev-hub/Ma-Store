@@ -1,11 +1,13 @@
 const menuToggle = document.getElementById('menu-toggle');
-const menu = document.querySelector('nav ul.menu');
+const menu = document.querySelector('.menu-navegacao .menu');
 
 menuToggle.addEventListener('click', () => {
-  if (menu.style.display === 'flex') {
-    menu.style.display = 'none';
-  } else {
-    menu.style.display = 'flex';
+  menu.classList.toggle('ativo');
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    menu.classList.remove('ativo');
   }
 });
 
