@@ -19,3 +19,30 @@ campoPesquisa.addEventListener("input", function () {
     produto.style.display = nome.includes(termo) ? "block" : "none";
   });
 });
+
+let carrinhoVisivel = false;
+let totalCarrinho = 0;
+let quantidadeItens = 0;
+
+function alternarCarrinho() {
+  const carrinho = document.getElementById('carrinho');
+  carrinhoVisivel = !carrinhoVisivel;
+  carrinho.classList.toggle('oculto', !carrinhoVisivel);
+}
+
+function fecharCarrinho() {
+  document.getElementById('carrinho').classList.add('oculto');
+  carrinhoVisivel = false;
+}
+
+function adicionarAoCarrinho(nome, preco) {
+  const lista = document.getElementById('lista-carrinho');
+  const item = document.createElement('li');
+  item.textContent = `${nome} - R$ ${preco.toFixed(2)}`;
+  lista.appendChild(item);
+
+  totalCarrinho += preco;
+  quantidadeItens++;
+  document.getElementById('total-carrinho').textContent = totalCarrinho.toFixed(2);
+  document.getElementById('quantidade-carrinho').textContent = quantidadeItens;
+}

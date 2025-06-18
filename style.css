@@ -18,42 +18,116 @@ body {
   margin: 0 auto;
 }
 
-/* Cabeçalho */
-header {
-  background: #222;
+/* Cabeçalho principal */
+.cabecalho {
+  background-color: #1e1e1e;
   color: white;
-  padding: 1rem 0;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
-.logo {
-  font-weight: 600;
-  font-size: 1.8rem;
-  letter-spacing: 3px;
-}
-
-nav ul.menu {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
+/* Container do cabeçalho com grid para organização */
+.container-cabecalho {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 0.5fr;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 15px;
+  padding: 0 20px;
 }
 
-nav ul.menu li a {
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Menu de navegação */
+.menu-navegacao {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.menu-navegacao a {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
-nav ul.menu li a:hover {
-  color: #00d9ff;
+.menu-navegacao a:hover {
+  color: #07e2ff;
 }
 
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Pesquisa */
+.barra-pesquisa input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
 }
+
+/* Carrinho */
+.icone-carrinho {
+  position: relative;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: right;
+}
+
+#quantidade-carrinho {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
+/* Caixa do carrinho flutuante */
+.carrinho {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: white;
+  color: black;
+  width: 250px;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 999;
+}
+
+.carrinho h3 {
+  margin-top: 0;
+}
+
+.carrinho.oculto {
+  display: none;
+}
+
+.carrinho button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-top: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.carrinho button:hover {
+  background-color: #0056b3;
+}
+
 
 /* Banner */
 .banner {
@@ -213,85 +287,133 @@ footer {
   border: 1px solid #ccc;
 }
 .categorias {
-  padding: 3rem 0;
-  background: #f0f0f0;
+  padding: 40px 20px;
+  background-color: #f7f7f7;
   text-align: center;
 }
 
 .categorias h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #1e90ff;
-}
-
-.categoria-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.categoria-card {
-  background: white;
-  border-radius: 10px;
-  padding: 1rem;
-  width: 120px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.categoria-card:hover {
-  transform: scale(1.05);
-}
-
-.categoria-card img {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.categoria-card span {
-  display: block;
-  margin-top: 0.5rem;
-  font-weight: bold;
+  font-size: 32px;
+  margin-bottom: 30px;
   color: #333;
 }
+
+/* Grid de categorias */
+.container-categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 30px;
+  max-width: 1000px; 
+  margin: 0 auto;
+}
+
+/* Bloco individual */
+.categoria {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.categoria:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.categoria img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.categoria span {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Estilo para a seção de promoções */
 .promocoes {
-  padding: 4rem 0;
-  background-color: #ffffff;
-  text-align: center;
+  margin: 40px 0; /* Espaçamento entre as seções */
+  text-align: center; /* Centraliza o texto */
+  background-color: #c8ffe8; /* Define a cor de fundo */
+  padding: 20px 0; /* Adiciona espaçamento interno */
+  border-radius: 8px; /* Adiciona bordas arredondadas para o fundo */
 }
 
 .promocoes h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #1e90ff;
+  font-size: 24px; /* Ajusta o tamanho da fonte */
+  margin-bottom: 20px; /* Adiciona espaçamento abaixo do título */
 }
 
+/* Estilo para o grid de promoções */
 .promocoes-grid {
   display: flex;
+  gap: 20px; /* Espaçamento entre os cards */
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: center; /* Centraliza os cards */
 }
 
+/* Estilo para os cards de promoção */
 .produto-card.promocao {
-  border: 2px solid #1e90ff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 250px; /* Define a largura fixa do card */
+  height: 350px; /* Define a altura fixa do card */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden; 
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.produto-card .preco-antigo {
-  color: #888;
+/* Estilo para as imagens dentro dos cards */
+.produto-card.promocao img {
+  max-width: max-content;
+  width: 100%;
+  height: 150px; /* Define a altura fixa da imagem */
+  object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+  border-bottom: 1px solid #ccc;
+}
+
+/* Estilo para o conteúdo do card */
+.produto-card.promocao h3 {
+  font-size: 19px;
+  margin: 10px 0;
+}
+
+.produto-card.promocao p {
+  font-size: 16px;
+  color: #333;
+}
+
+.produto-card.promocao .preco-antigo {
   text-decoration: line-through;
-  font-size: 0.9rem;
-  margin: 0.5rem 0;
+  color: #888;
 }
 
-.produto-card .preco {
-  color: #ff0000;
+.produto-card.promocao .preco {
   font-weight: bold;
-  font-size: 1.2rem;
+  color: #e63946;
 }
+
+.produto-card.promocao button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.produto-card.promocao button:hover {
+  background-color: #0056b3;
+}
+/* Estilo para os botões flutuantes */
 .botoes-flutuantes {
   position: fixed;
   bottom: 20px;
@@ -323,6 +445,9 @@ footer {
   width: 28px;
   height: 28px;
 }
+
+
+
 
 
 /* Esconde menu padrão no mobile */
