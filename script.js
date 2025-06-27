@@ -1,15 +1,20 @@
-const menuToggle = document.getElementById('menu-toggle');
-const menu = document.querySelector('.menu-navegacao .menu');
-
-menuToggle.addEventListener('click', () => {
+function toggleMenu() {
+  const menu = document.querySelector('.menu-navegacao');
   menu.classList.toggle('ativo');
-});
+}
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
+// Fecha o menu se clicar fora dele ou em um link
+document.addEventListener('click', function (e) {
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu-navegacao');
+  if (
+    !menu.contains(e.target) &&
+    !toggle.contains(e.target)
+  ) {
     menu.classList.remove('ativo');
   }
 });
+
 
 const campoPesquisa = document.getElementById("campo-pesquisa");
 campoPesquisa.addEventListener("input", function () {
