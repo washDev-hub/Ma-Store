@@ -460,6 +460,22 @@ footer {
   gap: 20px;
   align-items: center;
 }
+.filtros {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.filtros label {
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+.filtros select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
 
 /* Menu lateral só aparece em mobile */
 @media (max-width: 768px) {
@@ -527,4 +543,5 @@ footer {
   #overlay.ativo {
     display: block;
   }
+  
 }

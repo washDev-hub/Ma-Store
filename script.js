@@ -53,3 +53,25 @@ function adicionarAoCarrinho(nome, preco) {
   document.getElementById('total-carrinho').textContent = totalCarrinho.toFixed(2);
   document.getElementById('quantidade-carrinho').textContent = quantidadeItens;
 }
+function toggleMenu() {
+  const menu = document.getElementById('menuLateral');
+  const overlay = document.getElementById('overlay');
+  menu.classList.toggle('ativo');
+  overlay.classList.toggle('ativo');
+}
+
+// Fechar ao clicar fora
+document.addEventListener('click', function (e) {
+  const menu = document.getElementById('menuLateral');
+  const overlay = document.getElementById('overlay');
+  const toggle = document.querySelector('.menu-toggle');
+
+  if (
+    !menu.contains(e.target) &&
+    !toggle.contains(e.target) &&
+    menu.classList.contains('ativo')
+  ) {
+    menu.classList.remove('ativo');
+    overlay.classList.remove('ativo');
+  }
+});

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Todos os Produtos - MA Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="overlay" onclick="fecharMenu()"></div>
+
+<header class="cabecalho">
+  <div class="container-cabecalho">
+    <!-- Botão menu mobile -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html" style="color: white; text-decoration: none;">MA Store</a>
+    </div>
+
+    <!-- Menu de navegação -->
+    <nav class="menu-navegacao" id="menuLateral">
+      <a href="index.html"><span>🏠</span> Início</a>
+      <a href="produtos.html"><span>🛍️</span> Produtos</a>
+      <a href="#"><span>ℹ️</span> Sobre</a>
+      <a href="#"><span>📞</span> Contato</a>
+    </nav>
+
+    <!-- Campo de pesquisa -->
+    <div class="barra-pesquisa">
+      <input type="text" id="busca-produto" placeholder="Buscar produto...">
+    </div>
+
+    <!-- Carrinho -->
+    <div class="icone-carrinho" onclick="alternarCarrinho()">
+      🛒
+      <span id="quantidade-carrinho">0</span>
+    </div>
+  </div>
+</header>
+
+
+<section class="produtos container">
+  <h2>Todos os Produtos</h2>
+
+  <!-- Filtros -->
+  <div class="filtros">
+    <label for="filtro-categoria">Filtrar por categoria:</label>
+    <select id="filtro-categoria">
+      <option value="todos">Todos</option>
+      <option value="carregadores">Carregadores</option>
+      <option value="garrafas">Garrafas</option>
+      <option value="capinhas">Capinhas</option>
+      <option value="peliculas">Películas</option>
+      <option value="fones">Fones de Ouvido</option>
+    </select>
+  </div>
+
+  <!-- Lista de produtos -->
+  <div class="grid-produtos" id="lista-produtos">
+    <!-- Produtos serão renderizados aqui via JavaScript -->
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2025 MA Store. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="produtos.js"></script>
+</body>
+</html>
